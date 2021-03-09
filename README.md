@@ -11,6 +11,10 @@ Me chamo Bruno Costa, sou do interior do Ceará e fiz esse projeto como um peque
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E">
 <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white">
   
+## Imagens do projeto funcionando:
+
+Para ver como o projeto funciona, <a href="https://github.com/Bruno-Costa-fig/Controle-Estoque-JS/tree/main/imgs-projeto-funcionando">clique aqui.</a>
+  
 ## Meus contatos:
 
 <a href="mailto:brunocf.dev@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
