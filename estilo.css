@@ -1,0 +1,37 @@
+body {
+    background: rgb(107, 165, 241) !important;
+    font: normal 15pt Arial;
+    padding: 40px;
+}
+
+header {
+    color: white;
+    text-align: center;
+}
+
+section {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.363);
+}
+
+footer{
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-size: medium;
+}
+
+/* botão adicionar */
+.btn {
+    background-color:rgb(73, 224, 86);
+    color: white;
+}
+/* botão retirar */
+.fal {
+    background-color:rgb(212, 97, 52);
+    color: white;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Controle de Estoque</h1>
+    </header>
+     <!-- Interface onde o usuário faz a entrada e saída de dados --> 
+    <section>
+        <div class="container">
+            <div class="col-md-4">
+                <h3>Bombons</h3>
+                <p>
+                    <input type="number" name="numB" id="numB">
+                     <!-- Botão de dar entrada no estoque --> 
+                    <input type="button" value="Adicionar" class="btn btn-xs" onclick="adicionarBomb()">
+                    <!-- Botão de dar saída no estoque --> 
+                    <input type="button" value="Retirar" class="btn btn-xs fal" onclick="retirarBomb()">
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Pirulitos</h3>
+                <p>
+                    <input type="number" name="numP" id="numP">
+                     <!-- Botão de dar entrada no estoque --> 
+                    <input type="button" value="Adicionar" class="btn btn-xs" onclick="adicionarP()">
+                    <!-- Botão de dar saída no estoque --> 
+                    <input type="button" value="Retirar" class="btn btn-xs fal" onclick="retirarP()">
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h3>Salgadinhos</h3>
+                <p>
+                    <input type="number" name="numS" id="numS">
+                     <!-- Botão de dar entrada no estoque --> 
+                    <input type="button" value="Adicionar" class="btn btn-xs" onclick="adicionarSal()">
+                    <!-- Botão de dar saída no estoque --> 
+                    <input type="button" value="Retirar" class="btn btn-xs fal" onclick="retirarSal()">
+                </p>
+            </div>
+        </div>  
+        <div class="container">
+            <div class="col-md-8">
+                <h3>Estoque:</h3>
+            </div>
+        </div>     
+        <!-- Aqui é o painel onde vão aparecer os resultados --> 
+        <div class="container">
+            
+            <div class="col-md-4">
+                <p id="resB">Bombons: 0 und</p>
+            </div>
+            <div class="col-md-4">
+                <p id="resP">Pirulitos: 0 und</p>
+            </div>
+            <div class="col-md-4">
+                <p id="resS">Salgadinhos: 0 und</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>@brunocosta.fig</p>
+    </footer>
+    <script>
+        // cria vínculo com o input dos bombons
+        var numB = document.getElementById('numB')
+        // cria vínculo com o input dos pirulitos
+        var numP = document.getElementById('numP')
+        // cria vínculo com o input dos salgadinhos
+        var numS = document.getElementById('numS')
+        // cria vínculo com o painel do estoque atual dos bombons
+        var resB = document.getElementById('resB')
+        // cria vínculo com o painel do estoque atual dos pirulitos
+        var resP = document.getElementById('resP')
+        // cria vínculo com o painel do estoque atual dos salgadinhos
+        var resS = document.getElementById('resS')
+
+        // variável para guardar o valor digitado pelo usuário
+        var valAtual = 0
+        // variável que guarda o estoque de bombons
+        var valB = 0
+        // variável que guarda o estoque de pirulitos
+        var valP = 0
+        // variável que guarda o estoque de salgadinhos
+        var valS = 0
+
+        // funções de adicionar e retirar produtos
+
+        function adicionarBomb(){
+            // adiciona os bombons
+            alert(`Você adicionou ${numB.value} Bombons`)
+            valAtual = Number(numB.value)
+            valB += valAtual
+            resB.innerHTML = `<p>Bombons: ${valB} unds`
+                numB.value = '' // limpa a caixa de texto
+                numB.focus() // o marcador continua na caixa
+        }
+
+        function retirarBomb(){
+            // retira os bombons
+            alert(`Você retirou ${numB.value} Bombons`)
+            valAtual = Number(numB.value)
+
+            // verifica se não vai ser retirado mais do que há em estoque
+            if(valB/valAtual < 1){
+                alert('Erro! Você não tem estoque suficiente')
+                valAtual = 0
+                
+            } else {
+                valB -= valAtual
+                // faz a atualização do estoque atual no painel de resultados
+                resB.innerHTML = `<p>Bombons: ${valB} unds`
+            }
+            numB.value = '' // limpa a caixa de texto
+            numB.focus() // o marcador continua na caixa
+        }
+
+        // adicionar e retirar Pirulitos
+
+        function adicionarP(){
+            alert(`Você adicionou ${numP.value} Pirulitos`)
+            valAtual = Number(numP.value)
+            valP += valAtual
+            resP.innerHTML = `<p>Pirulitos: ${valP} unds`
+            numP.value = ''
+            numP.focus()
+        }
+
+        function retirarP(){
+            alert(`Você retirou ${numP.value} Pirulitos`)
+            valAtual = Number(numP.value)
+            if(valP/valAtual < 1){
+                alert('Erro! Você não tem estoque suficiente')
+            } else {
+                valP -= valAtual
+                resP.innerHTML = `<p>Pirulitos: ${valP} unds`
+            }
+            
+            numP.value = ''
+            numP.focus()
+        }
+
+        // adicionar e retirar Salgadinhos
+
+        function adicionarSal(){
+            alert(`Você adicionou ${numS.value} Salgadinhos`)
+            valAtual = Number(numS.value)
+            valS += valAtual
+            resS.innerHTML = `<p>Salgadinhos: ${valS} unds`
+            numS.value = ''
+            numS.focus()
+        }
+
+        function retirarSal(){
+            alert(`Você retirou ${numS.value} Salgadinhos`)
+            valAtual = Number(numS.value)
+            if(valS/valAtual < 1){
+                alert('Erro! Você não tem estoque suficiente')
+            } else {
+                valS -= valAtual
+                resS.innerHTML = `<p>Salgadinhos: ${valS} unds`
+            }
+            
+            numS.value = ''
+            numS.focus()
+        }
+    </script>
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
